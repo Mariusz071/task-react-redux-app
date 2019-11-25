@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+
+  //color CSS variables
+  --primary: #FC6C43;
+  --success: #5CB85C;
+  --text: #555;
+  --medium-gray: #ccc;
+
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  .btn {
+    padding: .75em 1em;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+
+    &.success {
+      background: var(--success)
+    }
+  }
+}
