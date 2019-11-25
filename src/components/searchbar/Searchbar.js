@@ -10,9 +10,17 @@ class Searchbar extends Component {
 
   inputChange = e => this.setState({ value: e.target.value })
 
-  render() {
-    const { display, getValue } = this.props
+  onSubmit = () => {
     const { value } = this.state
+    const { getValue } = this.props
+    getValue(value)
+    this.setState({ value: '' })
+  }
+
+  render() {
+    const { display } = this.props
+    const { value } = this.state
+
     return (
       <div
         className={cn('searchbar', {
@@ -20,8 +28,13 @@ class Searchbar extends Component {
           vertical: display === 'vertical',
         })}
       >
-        <input placeholder="London, United Kingdom" className="searchbar__input" onChange={this.inputChange}></input>
-        <button className="btn success" onClick={() => getValue(value)}>
+        <input
+          placeholder="i.e London, United Kingdom"
+          className="searchbar__input"
+          value={value}
+          onChange={this.inputChange}
+        ></input>
+        <button className="btn success" onClick={this.onSubmit}>
           Get Weather
         </button>
       </div>
