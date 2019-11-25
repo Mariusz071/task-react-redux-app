@@ -1,0 +1,19 @@
+.navbar {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // &__title {
+  //   color: red;
+  // }
+
+  // &__search {
+  //   width: 350px;
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+}
