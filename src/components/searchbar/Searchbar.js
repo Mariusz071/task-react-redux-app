@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import cn from 'classnames'
-import debounce from 'lodash.debounce'
 
 import './Searchbar.scss'
 
 class Searchbar extends Component {
-  inputChange = e => {
-    const { value } = e.target
-    const { getValue } = this.props
-    getValue(value)
+  state = {
+    value: '',
   }
+
+  inputChange = e => this.setState({ value: e.target.value })
 
   render() {
     const { display, getValue } = this.props
+    const { value } = this.state
     return (
       <div
         className={cn('searchbar', {
@@ -21,7 +21,9 @@ class Searchbar extends Component {
         })}
       >
         <input placeholder="London, United Kingdom" className="searchbar__input" onChange={this.inputChange}></input>
-        <button className="btn success">Get Weather</button>
+        <button className="btn success" onClick={() => getValue(value)}>
+          Get Weather
+        </button>
       </div>
     )
   }
