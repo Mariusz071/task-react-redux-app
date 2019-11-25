@@ -1,0 +1,31 @@
+.searchbar {    
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+
+  &__input {
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid var(--medium-gray);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    color: var(--text);
+    padding: .5em 1em;
+  }  
+
+  .btn { 
+    align-self: center;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+  }
+
+  &.vertical {
+    flex-direction: column;
+
+    .btn {
+      margin-top: 1em;
+    }
+  }
+}
