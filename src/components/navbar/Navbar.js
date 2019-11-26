@@ -1,6 +1,6 @@
 import React from 'react'
-
 import Searchbar from 'components/searchbar'
+
 import './Navbar.scss'
 
 const Navbar = () => (
