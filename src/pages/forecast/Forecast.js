@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import get from 'lodash.get'
 
-import DailyForecast from 'components/dailyForecast'
 import icons from 'components/icons'
+import GeneralForecast from 'components/generalForecast'
 
 import './Forecast.scss'
 
 class Forecast extends Component {
-  componentWillMount() {
-    const { history, weather } = this.props
-    if (!weather.city) history.push('/')
+  constructor(props) {
+    super(props)
+    const { history, weather } = props
+    const isLoaded = !!Object.keys(weather).length
+    if (!isLoaded) history.push('/')
   }
 
   render() {
@@ -17,20 +20,18 @@ class Forecast extends Component {
     const { city, list } = weather
     const isLoaded = !!Object.keys(weather).length
 
+    if (!isLoaded) return null
+
     return (
       <div className="forecast-page">
-        {isLoaded && (
-          <>
-            <h2 className="forecast-page__header">{city.name}</h2>
-            <div className="forecast-page__forecast">
-              {list.map((day, key) => {
-                const iconCode = day.weather[0].icon
-                const icon = icons[iconCode]
-                return <DailyForecast data={day} icon={icon} key={key} id={day.dt} />
-              })}
-            </div>
-          </>
-        )}
+        <h2 className="forecast-page__header">{city.name}</h2>
+        <div className="forecast-page__forecast">
+          {list.map((day, key) => {
+            const iconCode = day.weather[0].icon
+            const icon = icons[iconCode]
+            return <GeneralForecast data={day} icon={icon} key={key} id={day.dt} />
+          })}
+        </div>
       </div>
     )
   }
@@ -38,11 +39,8 @@ class Forecast extends Component {
 
 const mapStateToProps = state => {
   return {
-    weather: state.weather,
+    weather: get(state, 'weather'),
   }
 }
 
-export default connect(
-  mapStateToProps,
-  null
-)(Forecast)
+export default connect(mapStateToProps, null)(Forecast)
