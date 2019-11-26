@@ -1,18 +1,28 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getWeather } from './ducks/actions'
 import cn from 'classnames'
-import debounce from 'lodash.debounce'
 
 import './Searchbar.scss'
 
 class Searchbar extends Component {
-  inputChange = e => {
-    const { value } = e.target
-    const { getValue } = this.props
-    getValue(value)
+  state = {
+    value: '',
+  }
+
+  inputChange = e => this.setState({ value: e.target.value })
+
+  onSubmit = () => {
+    const { value } = this.state
+    const { getWeather } = this.props
+    getWeather(value)
+    this.setState({ value: '' })
   }
 
   render() {
-    const { display, getValue } = this.props
+    const { display } = this.props
+    const { value } = this.state
+
     return (
       <div
         className={cn('searchbar', {
@@ -20,11 +30,25 @@ class Searchbar extends Component {
           vertical: display === 'vertical',
         })}
       >
-        <input placeholder="London, United Kingdom" className="searchbar__input" onChange={this.inputChange}></input>
-        <button className="btn success">Get Weather</button>
+        <input
+          placeholder="i.e London, United Kingdom"
+          className="searchbar__input"
+          value={value}
+          onChange={this.inputChange}
+        ></input>
+        <button className="btn success" onClick={this.onSubmit}>
+          Get Weather
+        </button>
       </div>
     )
   }
 }
 
-export default Searchbar
+const mapDispatchToProps = {
+  getWeather,
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Searchbar)

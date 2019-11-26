@@ -1,9 +1,8 @@
 export default (state = [], action) => {
   const { type, payload } = action
-
   switch (type) {
     case 'GET_WEATHER':
-      return { ...state, payload }
+      return { ...state, ...payload }
 
     default:
       return state
