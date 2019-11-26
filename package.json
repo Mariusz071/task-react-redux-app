@@ -8,6 +8,7 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.8.1",
     "lodash.debounce": "^4.0.8",
+    "lodash.get": "^4.4.2",
     "lodash.keyby": "^4.6.0",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
