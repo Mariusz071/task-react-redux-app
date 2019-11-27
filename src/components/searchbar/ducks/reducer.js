@@ -1,10 +1,18 @@
-export default (state = [], action) => {
-  const { type, payload } = action
+export default (initialState = { error: null, data: null }, action) => {
+  const { type, payload, error } = action
   switch (type) {
     case 'GET_WEATHER':
-      return { ...state, ...payload }
+      return {
+        data: { ...payload },
+        error: null,
+      }
+
+    case 'ERROR':
+      return {
+        error,
+      }
 
     default:
-      return state
+      return initialState
   }
 }
