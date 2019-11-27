@@ -11,16 +11,15 @@ class Forecast extends Component {
   constructor(props) {
     super(props)
     const { history, weather } = props
-    const isLoaded = !!Object.keys(weather).length
-    if (!isLoaded) history.push('/')
+    const isLoaded = weather !== null
+    if (!isLoaded) return history.push('/')
   }
 
   render() {
     const { weather } = this.props
-    const { city, list } = weather
-    const isLoaded = !!Object.keys(weather).length
-
+    const isLoaded = weather !== null
     if (!isLoaded) return null
+    const { city, list } = weather
 
     return (
       <div className="forecast-page">
@@ -39,7 +38,8 @@ class Forecast extends Component {
 
 const mapStateToProps = state => {
   return {
-    weather: get(state, 'weather'),
+    weather: get(state, 'weather.data'),
+    state: state,
   }
 }
 

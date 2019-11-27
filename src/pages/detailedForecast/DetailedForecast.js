@@ -28,11 +28,11 @@ class DetailedForecast extends Component {
 }
 
 const mapStateToProps = (state, currentProps) => {
-  const weather = keyBy(state.weather.list, 'dt')
+  const weather = keyBy(get(state, 'weather.data.list'), 'dt')
   const dayId = currentProps.match.params.id
   return {
     dailyWeather: get(weather, dayId),
-    city: get(state, 'weather.city.name'),
+    city: get(state, 'data.weather.city.name'),
   }
 }
 
