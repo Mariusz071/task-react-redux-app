@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, Switch, Redirect } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from 'store'
 import history from 'common/history'
@@ -20,9 +20,8 @@ const App = () => {
           <Navbar />
           <Switch>
             <Route path="/" exact component={Search} />
-            <Route path="/weather" exact component={Forecast} />
-            <Route path="/weather/:id" exact component={DetailedForecast} />
-            <Redirect to="/" />
+            <Route path="/:city/" exact component={Forecast} />
+            <Route path="/:city/:id" exact component={DetailedForecast} />
           </Switch>
         </Router>
       </Layout>
