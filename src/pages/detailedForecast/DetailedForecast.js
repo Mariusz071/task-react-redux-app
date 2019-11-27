@@ -1,32 +1,40 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { getWeather } from './ducks/actions'
 import keyBy from 'lodash.keyby'
 import get from 'lodash.get'
 
 import DetailedForecastInfo from 'components/detailedForecast'
+import Loading from 'components/loading'
 
 import './DetailedForecast.scss'
 
 class DetailedForecast extends Component {
-  constructor(props) {
-    super(props)
-    const { history, dailyWeather } = props
-    if (!dailyWeather) history.replace('/')
+  state = {
+    loading: true,
+  }
+
+  async componentDidMount() {
+    const { getWeather, match } = this.props
+    await getWeather(match.params.city, match.params.id)
+    this.setState({ loading: false })
   }
 
   render() {
     const { dailyWeather, city } = this.props
-
-    if (!dailyWeather) return null
+    const { loading } = this.state
 
     return (
       <div className="detailed-forecast-page">
-        <DetailedForecastInfo data={dailyWeather} city={city} />
+        {loading ? <Loading /> : <DetailedForecastInfo data={dailyWeather} city={city} />}
       </div>
     )
   }
 }
 
+const mapDispatchToProps = {
+  getWeather,
+}
 const mapStateToProps = (state, currentProps) => {
   const weather = keyBy(get(state, 'weather.data.list'), 'dt')
   const dayId = currentProps.match.params.id
@@ -36,4 +44,7 @@ const mapStateToProps = (state, currentProps) => {
   }
 }
 
-export default connect(mapStateToProps, null)(DetailedForecast)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DetailedForecast)
