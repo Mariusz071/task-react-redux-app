@@ -7,7 +7,6 @@
 body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 
-  //color CSS variables
   --primary: #FC6C43;
   --success: #5CB85C;
   --text: #555;
@@ -38,6 +37,10 @@ body {
 
     &.success {
       background: var(--success)
+    }
+
+    &.disabled {
+      background: var(--medium-gray);
     }
   }
 }
