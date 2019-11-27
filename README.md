@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Running the app locally
+- download .zip / git pull the repository
+- go to the directory in command line and run `npm start`
+- wait for browser window to open with localhost running the app
+
+## Git pages issue
+For some reasons git pages doesn't serve the app correctly (i.e `error message` is returned initially on main page)
+When `refreshing` the page it's getting blown out.
+`None` of those issues is happening locally.
+
 ## Directory structure
 
 - /App            - main app component 
