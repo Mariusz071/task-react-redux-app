@@ -15,8 +15,10 @@ const DetailedForecastInfo = ({ data, city }) => {
 
   return (
     <div className="detailed-forecast">
-      {icon()}
-      <p>{date}</p>
+      <div className="detailed-forecast__header">
+        {icon()}
+        <p>{date}</p>
+      </div>
       <p>{city}</p>
       <p>{description}</p>
       <p>min temp: {minTemp}&#8451;</p>

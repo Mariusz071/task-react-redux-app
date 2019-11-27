@@ -32,7 +32,7 @@ const mapStateToProps = (state, currentProps) => {
   const dayId = currentProps.match.params.id
   return {
     dailyWeather: get(weather, dayId),
-    city: get(state, 'data.weather.city.name'),
+    city: get(state, 'weather.data.city.name'),
   }
 }
 

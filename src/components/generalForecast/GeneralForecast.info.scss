@@ -9,6 +9,17 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: all .1s;
+
+  &:hover {
+    box-shadow: 12px 0 15px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-6px);
+  }
+
+   &:active {
+    box-shadow: 6px 0 15px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
 
   svg {
     margin-bottom: .5em;
