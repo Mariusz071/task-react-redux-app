@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { getWeather } from './ducks/actions'
-import get from 'lodash.get'
 import cn from 'classnames'
 
+import history from 'common/history'
 import './Searchbar.scss'
 
 class Searchbar extends Component {
@@ -15,8 +13,7 @@ class Searchbar extends Component {
 
   onSubmit = () => {
     const { value } = this.state
-    const { getWeather } = this.props
-    getWeather(value)
+    history.push(`/${value}`)
     this.setState({ value: '' })
   }
 
@@ -37,9 +34,9 @@ class Searchbar extends Component {
             value={value}
             onChange={this.inputChange}
           ></input>
-          {error && <div className="error">{error}</div>}
+          {error && <div className="error">{error.message}</div>}
         </div>
-        <button className="btn success" onClick={this.onSubmit}>
+        <button disabled={!value} className={cn('btn', { disabled: !value, success: value })} onClick={this.onSubmit}>
           Get Weather
         </button>
       </div>
@@ -47,12 +44,4 @@ class Searchbar extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  getWeather,
-}
-
-const mapStateToProps = state => ({
-  error: get(state, 'weather.error.message'),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Searchbar)
+export default Searchbar
