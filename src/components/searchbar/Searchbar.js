@@ -33,7 +33,7 @@ class Searchbar extends Component {
         <div className="searchbar__input">
           <input
             placeholder="i.e London, United Kingdom"
-            className="searchbar__field"
+            className={cn('searchbar__field', { 'error-input': error })}
             value={value}
             onChange={this.inputChange}
           ></input>
