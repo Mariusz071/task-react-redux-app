@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getWeather } from './ducks/actions'
+import get from 'lodash.get'
 import cn from 'classnames'
 
 import './Searchbar.scss'
@@ -20,9 +21,8 @@ class Searchbar extends Component {
   }
 
   render() {
-    const { display } = this.props
+    const { display, error } = this.props
     const { value } = this.state
-
     return (
       <div
         className={cn('searchbar', {
@@ -30,12 +30,15 @@ class Searchbar extends Component {
           vertical: display === 'vertical',
         })}
       >
-        <input
-          placeholder="i.e London, United Kingdom"
-          className="searchbar__input"
-          value={value}
-          onChange={this.inputChange}
-        ></input>
+        <div className="searchbar__input">
+          <input
+            placeholder="i.e London, United Kingdom"
+            className="searchbar__field"
+            value={value}
+            onChange={this.inputChange}
+          ></input>
+          {error && <div className="error">{error}</div>}
+        </div>
         <button className="btn success" onClick={this.onSubmit}>
           Get Weather
         </button>
@@ -48,7 +51,8 @@ const mapDispatchToProps = {
   getWeather,
 }
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Searchbar)
+const mapStateToProps = state => ({
+  error: get(state, 'weather.error.message'),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Searchbar)
