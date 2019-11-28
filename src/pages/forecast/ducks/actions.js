@@ -7,7 +7,7 @@ export const getWeather = city => async dispatch => {
     const res = await api.getForecast(city)
     const success = res.statusText === 'OK'
 
-    if (res.statusText === 'OK') {
+    if (success) {
       dispatch({
         type: 'GET_WEATHER',
         payload: res.data,
