@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Running the app locally
 - download .zip / git pull the repository
-- go to the directory in command line and run `npm start`
+- go to the directory in command line and run `npm i && npm start`
 - wait for browser window to open with localhost running the app
 
 ## Git pages issue
@@ -12,13 +12,14 @@ When `refreshing` the page it's getting blown out.
 
 ## Directory structure
 
-- /App            - main app component 
+- /App            - main app component
 - /components     - 'dumb' components (do not connect to the store directly, receive data and callbacks as props)
 - /layout         - layout component
-- /pages          - 'smart' components that are served for main app routes (aka screens)
+- /modules        - 'smart' components (other than pages/screens)
+- /pages          - components that are served for main app routes (aka screens)
 - /store          - redux store
 
-## CSS approach 
+## CSS approach
 
 There is minimal amount of global / reset styling at /src/App/App.scss
 The rest of styling should be component based and modular.
