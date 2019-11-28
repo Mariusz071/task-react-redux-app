@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/task-react-redux-app/static/css/main.a4b4a0fb.chunk.css",
-    "main.js": "/task-react-redux-app/static/js/main.12ea2972.chunk.js",
-    "main.js.map": "/task-react-redux-app/static/js/main.12ea2972.chunk.js.map",
+    "main.js": "/task-react-redux-app/static/js/main.d5fe54af.chunk.js",
+    "main.js.map": "/task-react-redux-app/static/js/main.d5fe54af.chunk.js.map",
     "runtime-main.js": "/task-react-redux-app/static/js/runtime-main.cdff157f.js",
     "runtime-main.js.map": "/task-react-redux-app/static/js/runtime-main.cdff157f.js.map",
-    "static/js/2.1038c682.chunk.js": "/task-react-redux-app/static/js/2.1038c682.chunk.js",
-    "static/js/2.1038c682.chunk.js.map": "/task-react-redux-app/static/js/2.1038c682.chunk.js.map",
+    "static/js/2.222ffdac.chunk.js": "/task-react-redux-app/static/js/2.222ffdac.chunk.js",
+    "static/js/2.222ffdac.chunk.js.map": "/task-react-redux-app/static/js/2.222ffdac.chunk.js.map",
     "index.html": "/task-react-redux-app/index.html",
-    "precache-manifest.0c70f7b4bad6606793a37d48a58f4882.js": "/task-react-redux-app/precache-manifest.0c70f7b4bad6606793a37d48a58f4882.js",
+    "precache-manifest.29151dc5235462bce9b5f14cf4266d89.js": "/task-react-redux-app/precache-manifest.29151dc5235462bce9b5f14cf4266d89.js",
     "service-worker.js": "/task-react-redux-app/service-worker.js",
     "static/css/main.a4b4a0fb.chunk.css.map": "/task-react-redux-app/static/css/main.a4b4a0fb.chunk.css.map",
     "static/media/DetailedForecast.scss": "/task-react-redux-app/static/media/pattern.e78b5615.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.cdff157f.js",
-    "static/js/2.1038c682.chunk.js",
+    "static/js/2.222ffdac.chunk.js",
     "static/css/main.a4b4a0fb.chunk.css",
-    "static/js/main.12ea2972.chunk.js"
+    "static/js/main.d5fe54af.chunk.js"
   ]
 }
