@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import cn from 'classnames'
-
+import { connect } from 'react-redux'
+import get from 'lodash.get'
 import history from 'common/history'
 import './Searchbar.scss'
 
@@ -44,4 +45,11 @@ class Searchbar extends Component {
   }
 }
 
-export default Searchbar
+const mapStateToProps = state => ({
+  error: get(state, 'weather.error'),
+})
+
+export default connect(
+  mapStateToProps,
+  null
+)(Searchbar)
