@@ -12,7 +12,8 @@ class Searchbar extends Component {
 
   inputChange = e => this.setState({ value: e.target.value })
 
-  onSubmit = () => {
+  onSubmit = e => {
+    e.stopPropagation()
     const { value } = this.state
     history.push(`/${value}`)
     this.setState({ value: '' })
@@ -22,13 +23,14 @@ class Searchbar extends Component {
     const { display, error } = this.props
     const { value } = this.state
     return (
-      <div
-        className={cn('searchbar', {
-          horizontal: !display || display === 'horizontal',
-          vertical: display === 'vertical',
-        })}
-      >
-        <div className="searchbar__input">
+      <div className="searchbar">
+        <form
+          className={cn('searchbar__form', {
+            horizontal: !display || display === 'horizontal',
+            vertical: display === 'vertical',
+          })}
+          onSubmit={e => this.onSubmit(e)}
+        >
           <input
             placeholder="i.e London, United Kingdom"
             className={cn('searchbar__field', { 'error-input': error })}
@@ -36,10 +38,10 @@ class Searchbar extends Component {
             onChange={this.inputChange}
           ></input>
           {error && <div className="error">{error.message}</div>}
-        </div>
-        <button disabled={!value} className={cn('btn', { disabled: !value, success: value })} onClick={this.onSubmit}>
-          Get Weather
-        </button>
+          <button disabled={!value} className={cn('btn', { disabled: !value, success: value })}>
+            Get Weather
+          </button>
+        </form>
       </div>
     )
   }
@@ -49,7 +51,4 @@ const mapStateToProps = state => ({
   error: get(state, 'weather.error'),
 })
 
-export default connect(
-  mapStateToProps,
-  null
-)(Searchbar)
+export default connect(mapStateToProps, null)(Searchbar)

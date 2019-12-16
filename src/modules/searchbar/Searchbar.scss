@@ -4,9 +4,26 @@
   justify-content: space-between;
   width: 320px;
 
-  &__input {
+  &__form {
+    display: flex;
     position: relative;
+
+    &.horizontal {
+      flex-direction: row;
+
+    .btn {
+      margin-left: 1em;
+    }
+  }
+
+  &.vertical {
     flex: 1;
+    flex-direction: column;
+
+      .btn {
+        margin-top: 1em;
+      }
+    }
   }
 
   &__field {
@@ -35,6 +52,7 @@
   .btn {
     align-self: center;
     transition: all .1s;
+    min-width: 110px;
 
     &.success:hover {
       box-shadow: 6px 0 15px 0 rgba(0, 0, 0, 0.2);
@@ -45,21 +63,5 @@
       box-shadow: 3px 0 15px 0 rgba(0, 0, 0, 0.2);
       transform: translateY(-1px);
     }
-  }
-
-  &.horizontal {
-    flex-direction: row;
-
-    .btn {
-      margin-left: 1em;
-    }
-  }
-
-  &.vertical {
-    flex-direction: column;
-
-    .btn {
-      margin-top: 2em;
-    }
-  }
+  } 
 }
