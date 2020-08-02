@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { mount } from 'enzyme'
 
 import Searchbar from './Searchbar'
@@ -10,7 +10,7 @@ beforeEach(
   () =>
     (component = mount(
       <Root>
-        <Searchbar />
+        <Searchbar display='vertical' />
       </Root>
     ))
 )
