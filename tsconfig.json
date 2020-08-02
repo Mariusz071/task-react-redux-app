@@ -18,10 +18,11 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "noEmit": true,
     "noUnusedParameters": true,
-    "jsx": "react"
+    "jsx": "react",
+    "noImplicitAny": false
   },
   "include": [
     "src"
