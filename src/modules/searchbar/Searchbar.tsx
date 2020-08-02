@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { connect } from 'react-redux'
 import get from 'lodash.get'
 import history from 'common/history'
-import { DisplaySearchBar } from './types'
+import { DisplaySearchBar, Error } from './types'
 
 import './Searchbar.scss'
 
@@ -12,7 +12,7 @@ interface Props {
 }
 
 interface ReduxProps {
-  error?: any
+  error?: Error
 }
 
 const SearchBar: React.FC<Props & ReduxProps> = ({ display, error }) => {
