@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { FC } from "react";
 
-interface RouteElement {
+export interface RouteElement {
     path: string
-    component: ReactNode
+    component: FC
     exact?: boolean
 }
 
