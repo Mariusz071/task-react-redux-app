@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import Searchbar from './Searchbar'
-import Root from 'Root'
+import Root from 'common/Root'
 
 let component
 

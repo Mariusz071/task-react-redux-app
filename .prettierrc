@@ -1,9 +1,6 @@
 {
   "arrowParens": "avoid",
   "bracketSpacing": true,
-  "disableLanguages": [
-    "vue"
-  ],
   "eslintIntegration": false,
   "ignorePath": ".prettierignore",
   "jsxBracketSameLine": false,
@@ -16,6 +13,6 @@
   "stylelintIntegration": false,
   "tabWidth": 2,
   "trailingComma": "es5",
-  "tslintIntegration": false,
+  "tslintIntegration": true,
   "useTabs": false
 }
