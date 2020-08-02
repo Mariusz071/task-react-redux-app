@@ -6,6 +6,8 @@ import history from 'common/history'
 import Root from 'common/Root'
 import Layout from 'layout'
 import Navbar from 'components/navbar'
+import { RouteElement } from '../common/types';
+
 
 import './App.scss'
 
@@ -15,7 +17,7 @@ const App = () => (
       <Router history={history}>
         <Navbar />
         <Switch>
-          {routingConfig.map((page, idx) => {
+          {routingConfig.map((page: RouteElement, idx: number) => {
             const { exact, path, component } = page
             return <Route key={idx} exact={exact} path={path} component={component} />
           }
