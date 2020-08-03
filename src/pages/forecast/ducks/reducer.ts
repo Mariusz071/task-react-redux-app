@@ -1,15 +1,23 @@
-export default (initialState = { error: null, data: null }, action) => {
-  const { type, payload, error } = action
-  switch (type) {
-    case 'GET_WEATHER':
+import { WeatherAction, } from '../types'
+import { ReduxActionTypes } from 'common/types'
+
+const state = {
+  weather: null,
+  dailyWeather: null,
+  error: null
+}
+
+export default (initialState = state, action: WeatherAction) => {
+  switch (action.type) {
+    case ReduxActionTypes.getWeather:
       return {
-        data: { ...payload },
+        data: action.payload,
         error: null,
       }
 
-    case 'ERROR':
+    case ReduxActionTypes.error:
       return {
-        error,
+        error: action.error
       }
 
     default:
