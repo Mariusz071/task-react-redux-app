@@ -45,4 +45,9 @@ export interface DailyWeather {
     rain?: number
 }
 
+export interface MatchParams {
+    city: string;
+    id: string
+}
+
 export declare type RoutingConfig = RouteElement[]
