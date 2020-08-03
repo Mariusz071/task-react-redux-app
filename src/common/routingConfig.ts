@@ -1,6 +1,6 @@
 import Search from 'pages/search'
-import Forecast from 'pages/forecast'
-import DetailedForecast from 'pages/detailedForecast'
+import { Forecast } from 'pages/forecast'
+import { DetailedForecast } from 'pages/detailedForecast'
 import { RoutingConfig } from './types'
 
 

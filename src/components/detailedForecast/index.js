@@ -1,3 +1,3 @@
-import DetailedForecastInfo from './DetailedForecast.info'
+import { DetailedForecastInfo } from './DetailedForecast.info'
 
-export default DetailedForecastInfo
+export { DetailedForecastInfo }
