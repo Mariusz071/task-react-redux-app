@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { connect } from 'react-redux'
 import { getWeather } from './ducks/actions'
 import get from 'lodash.get'
@@ -10,38 +10,26 @@ import icons from 'components/icons'
 
 import './Forecast.scss'
 
-class Forecast extends Component {
-  state = {
-    loading: true,
-  }
 
-  componentDidMount() {
-    this.load()
-  }
+const Forecast = ({ weather, match, getWeather, history }) => {
+  const [loading, setLoading] = React.useState(true)
 
-  load = async () => {
-    const { getWeather, match, history } = this.props
-    this.setState({ loading: true, city: match.params.city })
-
-    await getWeather(match.params.city).catch(err => {
-      history.push('/')
-    })
-    this.setState({ loading: false })
-  }
-
-  render() {
-    const { weather, match } = this.props
-    const { loading, city } = this.state
-
-    if (city !== match.params.city) {
-      this.load()
+  React.useEffect(() => {
+    const load = async () => {
+      await getWeather(match.params.city).catch(err => {
+        history.push('/')
+      })
+      setLoading(false)
     }
 
-    return (
-      <div className="forecast-page">
-        {loading ? (
-          <Loading />
-        ) : (
+    load()
+  }, [getWeather, history, match.params.city])
+
+  return (
+    <div className="forecast-page">
+      {loading ? (
+        <Loading />
+      ) : (
           <>
             <h2 className="forecast-page__header">{weather.city.name}</h2>
             <div className="forecast-page__forecast">
@@ -53,9 +41,8 @@ class Forecast extends Component {
             </div>
           </>
         )}
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 const mapDispatchToProps = {
