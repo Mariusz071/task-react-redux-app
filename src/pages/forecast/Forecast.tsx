@@ -12,10 +12,6 @@ import icons from 'components/icons'
 
 import './Forecast.scss'
 
-
-
-
-
 interface ReduxProps {
   weather: WeatherData
 }
