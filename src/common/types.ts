@@ -1,3 +1,6 @@
+import { FC } from 'react'
+import { ConnectedComponent } from 'react-redux'
+
 interface Weather {
     id: number,
     main: string,
@@ -7,7 +10,7 @@ interface Weather {
 
 export interface RouteElement {
     path: string
-    component: any,
+    component: FC | ConnectedComponent<FC<any>, any>,
     exact?: boolean
 }
 
