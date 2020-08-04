@@ -7,23 +7,24 @@ import get from 'lodash.get'
 import Loading from 'components/loading'
 import GeneralForecast from 'components/generalForecast'
 import { WeatherData } from './types'
+import { MatchParams } from 'common/types'
 import icons from 'components/icons'
 
 import './Forecast.scss'
 
 
 
-interface MatchParams {
-  city: string;
-  id: string
-}
+
 
 interface ReduxProps {
   weather: WeatherData
+}
+
+interface ActionHandlers {
   getWeather: (city: string) => any
 }
 
-const _Forecast: React.FC<ReduxProps & RouteComponentProps<MatchParams>> = ({ weather, match, getWeather, history }) => {
+const _Forecast: React.FC<ReduxProps & RouteComponentProps<MatchParams> & ActionHandlers> = ({ weather, match, getWeather, history }) => {
   const [loading, setLoading] = React.useState(true)
 
   React.useEffect(() => {
