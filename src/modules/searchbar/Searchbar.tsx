@@ -2,7 +2,7 @@ import * as React from 'react'
 import cn from 'classnames'
 import { connect } from 'react-redux'
 import get from 'lodash.get'
-import history from 'common/history'
+import { history } from 'common/history'
 import { DisplaySearchBar, Error } from './types'
 
 import './Searchbar.scss'

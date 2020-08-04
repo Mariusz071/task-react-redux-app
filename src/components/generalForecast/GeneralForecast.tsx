@@ -1,5 +1,5 @@
 import * as React from 'react'
-import history from 'common/history'
+import { history } from 'common/history'
 
 import { formatDate } from 'common/utils'
 

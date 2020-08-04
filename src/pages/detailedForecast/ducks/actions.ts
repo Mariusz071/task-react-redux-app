@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux'
 import { ReduxActionTypes } from 'common/types'
 import api from 'api'
-import history from 'common/history'
+import { history } from 'common/history'
 import keyBy from 'lodash.keyby'
 import get from 'lodash.get'
 import { GetDailyWeatherAction } from './types'

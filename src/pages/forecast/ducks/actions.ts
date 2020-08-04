@@ -1,6 +1,6 @@
 import api from 'api'
 import get from 'lodash.get'
-import history from 'common/history'
+import { history } from 'common/history'
 import { Dispatch } from 'redux'
 import { ReduxActionTypes } from 'common/types'
 import { GetWeatherAction, ErrorAction } from '../types'
