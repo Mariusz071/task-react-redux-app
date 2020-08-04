@@ -1,5 +1,5 @@
 import React from 'react'
-import Searchbar from 'modules/searchbar'
+import { Searchbar } from 'modules/searchbar'
 
 import './Search.scss'
 

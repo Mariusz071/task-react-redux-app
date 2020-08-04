@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Searchbar from 'modules/searchbar'
+import { Searchbar } from 'modules/searchbar'
 import history from 'common/history'
 
 import './Navbar.scss'

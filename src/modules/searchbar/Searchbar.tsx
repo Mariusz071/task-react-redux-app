@@ -15,7 +15,7 @@ interface ReduxProps {
   error?: Error
 }
 
-const SearchBar: React.FC<Props & ReduxProps> = ({ display, error }) => {
+const _Searchbar: React.FC<Props & ReduxProps> = ({ display, error }) => {
   const [value, setValue] = React.useState<string>('')
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,4 +54,4 @@ const mapStateToProps = (state: any) => ({
   error: get(state, 'weather.error')
 })
 
-export default connect<ReduxProps, any, Props>(mapStateToProps, null)(SearchBar)
+export const Searchbar = connect<ReduxProps, any, Props>(mapStateToProps, null)(_Searchbar)
