@@ -26,7 +26,7 @@ export const DetailedForecastInfo: React.FC<Props> = ({ data }) => {
     <div className="detailed-forecast" >
       <div className="detailed-forecast__header">
         {icon()}
-        < p > {date} </p>
+        <p> {date} </p>
       </div>
       <p> {data.city} </p>
       <p> {description} </p>
