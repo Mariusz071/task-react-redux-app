@@ -1,3 +1,3 @@
-import GeneralForecastInfo from './GeneralForecast.info'
+import { GeneralForecast } from './GeneralForecast'
 
-export default GeneralForecastInfo
+export { GeneralForecast }
