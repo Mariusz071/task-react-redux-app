@@ -4,7 +4,7 @@ import { getWeather } from './ducks/actions'
 import { RouteComponentProps } from 'react-router-dom'
 import get from 'lodash.get'
 
-import Loading from 'components/loading'
+import { Loading } from 'components/loading'
 import GeneralForecast from 'components/generalForecast'
 import { WeatherData } from './types'
 import { MatchParams } from 'common/types'

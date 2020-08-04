@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router-dom'
 
 import { getDailyWeather } from './ducks/actions'
 import { DetailedForecastInfo } from 'components/detailedForecast'
-import Loading from 'components/loading'
+import { Loading } from 'components/loading'
 import { DailyWeather, MatchParams } from 'common/types'
 
 import './DetailedForecast.scss'
