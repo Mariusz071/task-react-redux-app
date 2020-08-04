@@ -1,6 +1,6 @@
-import React from 'react'
+import * as React from 'react'
 
-const Icon = () => (
+const Icon: React.FC = () => (
   <svg width="24px" height="24px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
     <circle
       cx="50"
