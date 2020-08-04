@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import App from './App'
-import Navbar from 'components/navbar'
+import { Navbar } from 'components/navbar'
 import Search from 'pages/search'
 
 describe('the landing page', () => {

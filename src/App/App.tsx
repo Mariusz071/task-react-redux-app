@@ -5,7 +5,7 @@ import { routingConfig } from 'common/routingConfig';
 import history from 'common/history'
 import Root from 'common/Root'
 import Layout from 'layout'
-import Navbar from 'components/navbar'
+import { Navbar } from 'components/navbar'
 import { RouteElement } from '../common/types';
 
 
