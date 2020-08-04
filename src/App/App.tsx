@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
 
 import { routingConfig } from 'common/routingConfig';
@@ -11,7 +11,7 @@ import { RouteElement } from '../common/types';
 
 import './App.scss'
 
-const App = () => (
+const App: React.FC = () => (
   <Root>
     <Layout>
       <Router history={history}>
